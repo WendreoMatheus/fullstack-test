@@ -1,0 +1,36 @@
+/* Additional custom styles for the todo app */
+
+.todo-item {
+    margin-bottom: 0.5rem;
+}
+
+.todo-text {
+    margin-left: 0.5rem;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .level {
+        display: block !important;
+    }
+
+    .level-left, .level-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
