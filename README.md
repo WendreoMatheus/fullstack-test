@@ -31,13 +31,20 @@ todo-app/
 │   ├── package.json        - Backend dependencies
 │   └── tsconfig.json       - TypeScript configuration
 ├── frontend/
-│   ├── index.html          - Basic HTML structure with React setup
-│   ├── App.jsx             - React components with TODO comments to implement
-│   └── style.css           - Basic custom styling with Bulma
+│   ├── public/
+│   │   └── index.html      - HTML template with Bulma CSS
+│   ├── src/
+│   │   ├── App.tsx         - React components with TODO comments to implement
+│   │   ├── services/
+│   │   │   └── api.ts      - Axios service with TODO methods to implement
+│   │   └── types/
+│   │       └── todo.ts     - TypeScript interfaces
+│   ├── package.json        - Frontend dependencies
+│   └── tsconfig.json       - TypeScript configuration
 └── README.md               - This file
 ```
 
-**Frontend**: Only implement the React functionality in `frontend/App.jsx`.
+**Frontend**: Implement React functionality in `frontend/src/App.tsx` and API service in `frontend/src/services/api.ts`.
 **Backend**: Implement the TODO route handlers in `backend/src/routes/todos.ts`.
 
 ## Required Features (Must Complete ALL)
@@ -55,7 +62,7 @@ todo-app/
 - **Must use Axios** for HTTP requests to backend (pre-configured service provided)
 - **Backend integration required** - connect to REST API
 - Must use the provided React component structure
-- Must implement all TODO comments in `App.jsx` and `src/services/api.js`
+- Must implement all TODO comments in `src/App.tsx` and `src/services/api.ts`
 - All features must work without console errors
 
 ## Evaluation Scoring (100 points total)
