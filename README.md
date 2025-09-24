@@ -57,34 +57,35 @@ todo-app/
 5. **Error Handling** - Display loading states and error messages
 
 ### Technical Requirements
-- **Must use React with Context API** for state management
+- **Must use React** for frontend development
 - **Must implement custom hooks** (e.g., `useTodos`)
 - **Must use Axios** for HTTP requests to backend (pre-configured service provided)
 - **Backend integration required** - connect to REST API
 - Must use the provided React component structure
 - Must implement all TODO comments in `src/App.tsx` and `src/services/api.ts`
 - All features must work without console errors
+- Context API is optional but recommended for state management
 
-## Evaluation Scoring (100 points total)
+## Evaluation Criteria
 
-### Functionality (60 points)
-- Fetch todos from backend: 12 points
-- Add todo with backend: 12 points
-- Toggle complete/incomplete with backend: 12 points
-- Delete todo with backend: 12 points
-- Error handling and loading states: 12 points
+### Required Functionality
+- Fetch todos from backend
+- Add todo with backend integration
+- Toggle complete/incomplete with backend
+- Delete todo with backend
+- Error handling and loading states
 
-### Code Quality (25 points)
-- Clean, readable React code: 8 points
-- Proper use of Context API: 6 points
-- Custom hooks implementation: 6 points
-- No console errors: 5 points
+### Code Quality Expectations
+- Clean, readable React code
+- Proper state management (Context API optional)
+- Custom hooks implementation
+- No console errors
 
-### User Experience (15 points)
-- Intuitive interface: 10 points
-- Visual feedback for completed todos: 5 points
+### User Experience
+- Intuitive interface
+- Visual feedback for completed todos
 
-### Bonus Points (up to 10 points)
+### Optional Enhancements
 - Optimistic UI updates
 - Request debouncing
 - Retry failed requests
@@ -135,9 +136,11 @@ DELETE /api/todos/:id       - Remove todo from array
 ### Backend Setup
 1. **Navigate to backend** - `cd backend/`
 2. **Install dependencies** - `npm install`
-3. **Start development server** - `npm run dev`
+3. **Start development server** - `npm run dev` (or `npm run dev:watch` for auto-restart)
 4. **Verify server** - Should see "Server running on http://localhost:3001"
 5. **Implement route handlers** - Complete TODOs in `src/routes/todos.ts`
+
+**Note:** Use `npm run dev:watch` to automatically restart the server when you make changes to the code.
 
 ### Frontend Setup
 1. **Navigate to frontend folder** - `cd frontend/`
@@ -146,11 +149,27 @@ DELETE /api/todos/:id       - Remove todo from array
 4. **Start your timer** ⏰
 5. **Implement the TODO comments in order:**
    - Complete API service methods in `src/services/api.ts`
-   - Uncomment and implement TodoContext interface in `src/App.tsx`
    - Implement useTodos custom hook in `src/App.tsx`
-   - Implement TodoProvider state management and CRUD functions
-   - Connect components to use context hooks for functionality
+   - Implement state management and CRUD functions (Context API optional)
+   - Connect components to use hooks for functionality
 6. **Test frequently** - App runs at http://localhost:3000
 7. **Stop at 60 minutes** regardless of completion
 
 **Good luck! Focus on working functionality over perfect code.**
+
+## Testing the Backend API
+
+A Postman collection is provided (`Todo_API_Collection.postman_collection.json`) for easy API testing:
+
+1. **Import the collection** - Open Postman and import the collection file
+2. **Start the backend server** - Make sure your backend is running on `http://localhost:3001`
+3. **Test the endpoints** in this order:
+   - **Health Check** - Verify the server is running
+   - **Get All Todos** - Should return an empty array initially
+   - **Create New Todo** - Add a todo item
+   - **Create Another Todo** - Add another todo item
+   - **Get All Todos** - Should now return your created todos
+   - **Toggle Todo Completion** - Copy an ID from previous response and update the `todoId` variable
+   - **Delete Todo** - Copy an ID and update the `todoId` variable
+
+**Note:** For PUT and DELETE requests, you'll need to replace `:todoId` with actual UUIDs from the created todos.

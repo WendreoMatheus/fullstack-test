@@ -1,0 +1,181 @@
+{
+  "info": {
+    "name": "Todo App API",
+    "description": "A collection for testing the Todo App backend API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Todos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/todos",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Todo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Learn Node.js and Express\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/todos",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Another Todo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Build a React frontend\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/todos",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Toggle Todo Completion",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/todos/:todoId",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos", ":todoId"],
+          "variable": [
+            {
+              "key": "todoId",
+              "value": "replace-with-actual-todo-id",
+              "description": "Replace with the actual UUID of a todo item"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Todo",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/todos/:todoId",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos", ":todoId"],
+          "variable": [
+            {
+              "key": "todoId",
+              "value": "replace-with-actual-todo-id",
+              "description": "Replace with the actual UUID of a todo item"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Todo - Invalid Request (No Text)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/todos",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Non-existent Todo",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/todos/non-existent-id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "todos", "non-existent-id"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
